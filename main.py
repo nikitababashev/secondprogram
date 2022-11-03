@@ -1,10 +1,26 @@
 import sys
 import random
 
-from UI import Ui_Form
 from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5 import QtCore, QtWidgets
+
+
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(756, 723)
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(160, 20, 441, 41))
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Form"))
+        self.pushButton.setText(_translate("Form", "random ellipse"))
 
 
 class MyWidget(QWidget, Ui_Form):
@@ -34,23 +50,6 @@ class MyWidget(QWidget, Ui_Form):
         y = random.randint(100, 500)
         qp.setBrush(QColor(r, g, b))
         qp.drawEllipse(100, 200, x, y)
-
-
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(756, 723)
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(160, 20, 441, 41))
-        self.pushButton.setObjectName("pushButton")
-
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
-
-    def retranslateUi(self, Form):
-        _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.pushButton.setText(_translate("Form", "random ellipse"))
 
 
 if __name__ == '__main__':
