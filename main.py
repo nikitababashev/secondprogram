@@ -47,9 +47,8 @@ class MyWidget(QWidget, Ui_Form):
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         x = random.randint(100, 500)
-        y = random.randint(100, 500)
         qp.setBrush(QColor(r, g, b))
-        qp.drawEllipse(100, 200, x, y)
+        qp.drawEllipse(100, 200, x, x)
 
 
 if __name__ == '__main__':
